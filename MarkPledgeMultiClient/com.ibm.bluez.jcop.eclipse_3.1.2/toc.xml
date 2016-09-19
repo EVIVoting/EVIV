@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<toc label="JCOP Tools User Guide">
+	<topic label="Welcome" href="guide/welcome.html" />
+	<topic label="What's new" href="guide/release.html" />
+	<topic label="License Agreement" href="guide/license.html" />
+
+	<topic label="Concepts" href="guide/concepts/index.html">
+		<topic label="Perspectives" href="guide/concepts/perspectives.html" />
+		<topic label="Views" href="guide/concepts/views.html" />
+		<topic label="JCOP Preferences" href="guide/concepts/preferences.html" />
+	</topic>
+
+	<topic label="Getting started" href="guide/gettingstarted/index.html">
+		<topic label="Creating a Java Card project" href="guide/gettingstarted/createproject.html" />
+		<topic label="Creating a Java Card applet" href="guide/gettingstarted/createapplet.html" />
+		<topic label="Starting a Java Card simulation" href="guide/gettingstarted/startsimul.html" />
+		<topic label="Debugging a Java Card application" href="guide/gettingstarted/debugging.html" />
+		<topic label="Using the JCOP Shell" href="guide/gettingstarted/shellcomm.html" />
+	</topic>
+		
+	<topic label="JCOP Shell" href="guide/shell/index.html">
+		<topic label="Command execution" href="guide/shell/cmd.html"/>
+		<topic label="Data entry/reference" href="guide/shell/data.html"/>
+        <topic label="Variables" href="guide/shell/vars.html">
+           <topic label="Modifiers" href="guide/shell/vars.html#var_mod"/>
+           <topic label="Arrays" href="guide/shell/vars.html#var_array"/>
+           <topic label="Special variables" href="guide/shell/vars.html#var_special"/>           
+        </topic>
+		<topic label="JCOP Shell scripts" href="guide/shell/scripts.html">
+		   <topic label="Startup scripts" href="guide/shell/script_init.html"/>
+		   <topic label="Control flow" href="guide/shell/control.html"/>
+		   <topic label="Expressions" href="guide/shell/expression.html"/>
+        </topic>
+		<topic label="Shell commands" href="guide/shell/jcshell_cmd.html"/>
+		<topic label="JCOP Shell Plugins" href="guide/shell/plugin.html">
+            <topic label="CardManager plugin" href="guide/shell/plugins/gp_cm.html"/>
+            <topic label="OP Applet plugin" href="guide/shell/plugins/op_applet.html"/>
+            <topic label="Security Domain plugin" href="guide/shell/plugins/security.html"/>
+            <topic label="Provider Security Domain plugin" href="guide/shell/plugins/provider_security.html"/>
+            <topic label="RMI plugin" href="guide/shell/plugins/rmi_cm.html"/>
+        </topic>
+		<topic label="Tutorials" href="guide/shell/tutorial_idx.html"/>
+	</topic>
+
+	<topic label="Reference" href="guide/reference/index.html">
+		<topic label="Offcard-APIs" href="guide/reference/offcardapis.html" />
+		<topic label="Oncard-APIs">
+			<topic label="Java Card APIs" href="guide/reference/oncard_jc.html" />
+			<topic label="GlobalPlatform APIs" href="guide/reference/oncard_gp.html" />
+			<topic label="JCF Biometric API 1.0" href="guide/reference/oncard_bio10.html" />
+			<anchor id="jcop_oncard_apis" />
+		</topic>
+		<anchor id="jcop_references" />
+	</topic>
+	<anchor id="jcop_tools" />
+</toc>

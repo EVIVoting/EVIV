@@ -1,0 +1,23 @@
+Test with 8 threads.
+Test with 1250 votes per thread.
+Test with 10 candidates per vote.
+*** Election Results ***
+Candidate A: 1020 - 1020 true
+Candidate B: 988 - 988 true
+Candidate C: 1033 - 1033 true
+Candidate D: 962 - 962 true
+Candidate E: 994 - 994 true
+Candidate F: 976 - 976 true
+Candidate G: 1081 - 1081 true
+Candidate H: 946 - 946 true
+Candidate I: 1042 - 1042 true
+Candidate J: 958 - 958 true
+************************
+*************** MP3PerformanceTest Times ***************
+Total number of votes: 10000
+Number of candidates: 10
+Final aggregation time: 1
+Tally decryption time: 9
+Tally translation time: 784
+Total thread time: 383004
+********************************************************

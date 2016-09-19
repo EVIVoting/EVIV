@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="RR_cb" name="gsd.NewTest" tests="1" failures="0" timestamp="4 Nov 2010 08:20:36 GMT" time="0.049" errors="0">
+  <testcase name="f" time="0.018" classname="gsd.NewTest"/>
+</testsuite>

@@ -1,0 +1,10 @@
+﻿Build started 23-05-2011 17:06:08.
+     1>Project "H:\VirtualBox\SharedWorkspace\MultosMultiMP\Multos.vcxproj" on node 2 (clean target(s)).
+     1>CoreClean:
+         del *.hzx *.o
+         Could Not Find H:\VirtualBox\SharedWorkspace\MultosMultiMP\*.hzx
+     1>Done Building Project "H:\VirtualBox\SharedWorkspace\MultosMultiMP\Multos.vcxproj" (clean target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.03

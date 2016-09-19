@@ -1,0 +1,14 @@
+Test with 1 threads.
+Test with 10 votes per thread.
+Test with 2 candidates per vote.
+*** Election Results ***
+Candidate A: 6 - 6 true
+Candidate B: 4 - 4 true
+************************
+*************** MP3PerformanceTest Times ***************
+Total number of votes: 10
+Number of candidates: 2
+Final aggregation time: 0
+Tally decryption time: 10
+Tally translation time: 0
+********************************************************

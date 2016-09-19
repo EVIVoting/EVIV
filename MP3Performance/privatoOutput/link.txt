@@ -1,0 +1,1 @@
+http://www.archivum.info/gcc-bugs@gcc.gnu.org/2008-10/00114/(Bug-libgcj-37856)-New-Abort-with-Too-many-heap-sections-Increase-MAXHINCR-or-MAX_HEAP_SECTS.html

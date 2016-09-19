@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="com.ibm.bluez.jcop.eclipse"
+   name="%plugin.name"
+   version="3.1.2"
+   provider-name="%plugin.provider"
+   class="com.ibm.bluez.jcop.eclipse.internal.JCPlugin ">
+
+   <runtime>
+      <library name="jceclipse.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/offcard.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jpcsc.jar">
+         <export name="*"/>
+      </library>
+      <library name="tric.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/jcop_fabkey.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/imgenc.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jdt.core"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.forms"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.jdt.debug"/>
+      <import plugin="org.eclipse.jdt.launching"/>
+      <import plugin="org.eclipse.core.variables"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.update.core"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.cheatsheets"/>
+      <import plugin="org.eclipse.help"/>
+   </requires>
+   
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="%PreferencePage.JCOPPreferences"
+            class="com.ibm.bluez.jcop.eclipse.internal.preferences.JCOPPreferencePage"
+            id="com.ibm.bluez.jcop.eclipse.JCOPPreferencePage">
+            <keywordReference id="com.ibm.bluez.jcop.eclipse.ui.general"/>
+      </page>
+   </extension>
+
+   <extension
+   		point="org.eclipse.ui.keywords">
+      <keyword
+            label="%preferenceKeywords.general"
+            id="com.ibm.bluez.jcop.eclipse.ui.general"/>
+   </extension>
+   
+   
+   <extension-point id="cardapis" name="Java Card APIs" schema="schema/cardapis.exsd"/>
+   <extension-point id="cardconfigs" name="Java Card Configurations" schema="schema/cardconfigs.exsd"/>
+   <extension-point id="templatewizards" name="Java Card Project Template Wizards" schema="schema/templatewizards.exsd"/>
+   <extension-point id="cardtypes" name="Java Card Types" schema="schema/cardtypes.exsd"/>
+   <extension-point id="readerproviders" name="Reader Providers" schema="schema/readerproviders.exsd"/>
+   <extension-point id="simulations" name="Java Card Simulations" schema="schema/simulations.exsd"/>
+   <extension-point id="shellplugins" name="Shell Plugins" schema="schema/shellplugins.exsd"/>
+   <extension-point id="profilingMemFieldKeys" name="Profiling Memory Field Key" schema="schema/profilingMemFieldKeys.exsd"/>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            allowMultiple="false"
+            icon="icons/cview16/shell.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.views.shell.ShellView"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            name="%views.shell.name"
+            id="com.ibm.bluez.jcop.eclipse.views.shell"/>
+      <category
+            name="%categories.javacard.name"
+            id="com.ibm.bluez.jcop.eclipse.categories.javacard"/>
+      <view
+            icon="icons/cview16/explorer.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.views.explorer.JCOPExplorerPart"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            name="%views.explorer.name"
+            id="com.ibm.bluez.jcop.eclipse.views.explorer"/>
+      <view
+            icon="icons/cview16/bytecode.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.views.jcasm.BytecodeView"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            name="%views.bytecode.name"
+            id="com.ibm.bluez.jcop.eclipse.views.bytecode"/>
+      <view
+            icon="icons/cview16/capfile.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.views.capinfo.CapInfoView"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            name="%views.capinfo.name"
+            id="com.ibm.bluez.jcop.eclipse.views.capinfo"/>
+      <view
+            icon="icons/cview16/memory.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.views.meminfo.MemInfoView"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            name="%views.meminfo.name"
+            id="com.ibm.bluez.jcop.eclipse.views.meminfo"/>
+   </extension>
+   <extension
+         id="jcopnature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="com.ibm.bluez.jcop.eclipse.internal.JCOPNature"/>
+      </runtime>
+      <requires-nature id="org.eclipse.jdt.core.javanature"/>
+   </extension>
+   <extension
+         id="jcopbuilder"
+         name="%builder.name"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run class="com.ibm.bluez.jcop.eclipse.internal.builder.ConverterBuilder"/>
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            finalPerspective="com.ibm.bluez.jcop.eclipse.perspectives.development"
+            icon="icons/etool16/newjprj_wiz.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.wizards.NewProjectWizard"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            project="true"
+            name="%wizards.newproject.name"
+            id="com.ibm.bluez.jcop.eclipse.wizards.newproject">
+         <description>
+            %wizards.newproject.desc
+         </description>
+      </wizard>
+      <category
+            name="%categories.javacard.name"
+            id="com.ibm.bluez.jcop.eclipse.categories.javacard"/>
+      <wizard
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.wizards.newapp.NewAppletWizard"
+            icon="icons/etool16/newapp_wiz.gif"
+            category="com.ibm.bluez.jcop.eclipse.categories.javacard"
+            name="%wizards.newapp.name"
+            id="com.ibm.bluez.jcop.eclipse.wizards.newapp">
+         <description>
+            %wizards.newapp.desc
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+            class="com.ibm.bluez.jcop.eclipse.internal.builder.CardConfigurationContainerInitializer"
+            id="com.ibm.bluez.jcop.eclipse.containers.cardconfig"/>
+   </extension>
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.wizards.CardConfigurationPage"
+            name="%containers.cardconfig.name"
+            id="com.ibm.bluez.jcop.eclipse.containers.cardconfig"/>
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.cardapis">
+      <cardapi
+            libPath="apis/jc221/jc221.jar"
+            srcRoot="src"
+            docRoot="doc"
+            docPath="apis/jc221/jc221-src.jar"
+            srcPath="apis/jc221/jc221-src.jar"
+            icon="icons/obj16/javacard_api.gif"
+            name="%cardapis.jc221.name"
+            id="com.ibm.bluez.jcop.eclipse.cardapis.jc221"/>
+      <cardapi
+            libPath="apis/jc211/jc211.jar"
+            srcRoot="src"
+            docRoot="doc"
+            docPath="apis/jc211/jc211-src.jar"
+            srcPath="apis/jc211/jc211-src.jar"
+            icon="icons/obj16/javacard_api.gif"
+            name="%cardapis.jc211.name"
+            id="com.ibm.bluez.jcop.eclipse.cardapis.jc211"/>
+      <cardapi
+            libPath="apis/gp211/gp211.jar"
+            srcRoot="src"
+            docRoot="doc"
+            docPath="apis/gp211/gp211-src.jar"
+            srcPath="apis/gp211/gp211-src.jar"
+            icon="icons/obj16/openplatform_api.gif"
+            name="%cardapis.gp211.name"
+            id="com.ibm.bluez.jcop.eclipse.cardapis.gp211"/>
+      <cardapi
+            libPath="apis/op201/op201.jar"
+            srcRoot="src"
+            docRoot="doc"
+            docPath="apis/op201/op201-src.jar"
+            srcPath="apis/op201/op201-src.jar"
+            icon="icons/obj16/openplatform_api.gif"
+            name="%cardapis.op201.name"
+            id="com.ibm.bluez.jcop.eclipse.cardapis.op201"/>
+      <cardapi
+            libPath="apis/bio10/bio10.jar"
+            srcRoot="src"
+            docRoot="doc"
+            docPath="apis/bio10/bio10-src.jar"
+            srcPath="apis/bio10/bio10-src.jar"
+            icon="icons/obj16/bio_api.gif"
+            name="%cardapis.bio10.name"
+            id="com.ibm.bluez.jcop.eclipse.cardapis.bio10"/>
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.cardconfigs">
+      <cardconfig
+            name="%cardconfigs.njcop.name"
+            id="com.ibm.bluez.jcop.eclipse.cardconfigs.njcop">
+         <cardapi id="com.ibm.bluez.jcop.eclipse.cardapis.jc221"/>
+         <cardapi id="com.ibm.bluez.jcop.eclipse.cardapis.gp211"/>
+         <cardapi id="com.ibm.bluez.jcop.eclipse.cardapis.bio10"/>
+      </cardconfig>
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.templatewizards">
+      <wizard
+            wizardClass="com.ibm.bluez.jcop.eclipse.internal.ui.wizards.template.BasicAppletWizard"
+            icon="icons/etool16/newapp_wiz.gif"
+            description="%templatewizards.basic.desc"
+            name="%templatewizards.basic.name"
+            id="com.ibm.bluez.jcop.eclipse.templatewizards.basic"/>
+      <wizard
+            wizardClass="com.ibm.bluez.jcop.eclipse.internal.ui.wizards.template.RMIAppletWizard"
+            icon="icons/etool16/newrmiapp_wiz.gif"
+            description="%templatewizards.rmi.desc"
+            name="%templatewizards.rmi.name"
+            id="com.ibm.bluez.jcop.eclipse.templatewizards.rmi"/>
+   </extension>
+   <extension
+         id="jcopmarker"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <persistent value="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            sourceLocatorId="org.eclipse.jdt.launching.sourceLocator.JavaSourceLookupDirector"
+            delegate="com.ibm.bluez.jcop.eclipse.internal.launcher.JavaCardLaunchConfigurationDelegate"
+            sourcePathComputerId="com.ibm.bluez.jcop.eclipse.sourcepathcomputers.javacard"
+            name="%launcher.name"
+            id="com.ibm.bluez.jcop.eclipse.launcher"
+            modes="run, debug"/>
+   </extension>
+  
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            icon="icons/obj16/application.gif"
+            configTypeID="com.ibm.bluez.jcop.eclipse.launcher"
+            id="com.ibm.bluez.jcop.eclipse.launcher.image"/>
+   </extension> <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            type="com.ibm.bluez.jcop.eclipse.launcher"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.launcher.JavaCardTabGroup"
+            id="com.ibm.bluez.jcop.eclipse.lctabgroup">
+         <launchMode
+               mode="run"
+               perspective="com.ibm.bluez.jcop.eclipse.perspectives.debug"/>
+         <launchMode
+               mode="debug"
+               perspective="com.ibm.bluez.jcop.eclipse.perspectives.debug"/>
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.cardtypes">
+      <cardtype
+            cmaid="A000000003000000"
+            cmplugin="com.ibm.jc.CardManager"
+            id="com.ibm.bluez.jcop.cardtypes.jcop"
+            iuset="255"
+            maxblocksize="250"
+            name="JCOP Engineering Sample"
+            scp="SCP_AUTO"
+            sdaid="A000000003000000"
+            seclevel="plain">
+         <key>
+            255/1/DES-ECB/404142434445464748494A4B4C4D4E4F
+         </key>
+         <key>
+            255/2/DES-ECB/404142434445464748494A4B4C4D4E4F
+         </key>
+         <key>
+            255/3/DES-ECB/404142434445464748494A4B4C4D4E4F
+         </key>
+      </cardtype>
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.readerproviders">
+      <readerprovider
+            providerClass="com.ibm.bluez.jcop.eclipse.internal.launcher.PCSCProvider"
+            name="PCSC Reader Provider"
+            id="com.ibm.bluez.jcop.eclipse.readers.jpcsc" />
+      <readerprovider
+            providerClass="com.ibm.bluez.jcop.eclipse.internal.launcher.PegodaProvider"
+            name="Pegoda Reader Provider"
+            id="com.ibm.bluez.jcop.eclipse.readers.pegoda" />
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.simulations">
+      <simulation
+            configPageClass="com.ibm.bluez.jcop.eclipse.internal.simul.NJCOPSimulationConfigPage"
+            simulClass="com.ibm.bluez.jcop.eclipse.internal.simul.NJCOPSimulation"
+            name="%simulations.njcop.name"
+            id="com.ibm.bluez.jcop.eclipse.simulations.njcop"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            objectClass="org.eclipse.jdt.core.IPackageFragment"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.properties.PackagePropertyPage"
+            name="%proppages.package.name"
+            id="com.ibm.bluez.jcop.eclipse.proppages.package">
+         <filter
+               value="com.ibm.bluez.jcop.eclipse.jcopnature"
+               name="projectNature"/>
+      </page>
+      <page
+            objectClass="org.eclipse.jdt.core.IType"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.properties.AppletPropertyPage"
+            name="%proppages.applet.name"
+            id="com.ibm.bluez.jcop.eclipse.proppages.applet">
+         <filter
+               value="com.ibm.bluez.jcop.eclipse.jcopnature"
+               name="projectNature"/>
+      </page>
+      <page
+            objectClass="org.eclipse.jdt.core.IJavaProject"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.properties.ProjectPropertyPage"
+            name="%proppages.project.name"
+            id="com.ibm.bluez.jcop.eclipse.proppages.project">
+         <filter
+               value="com.ibm.bluez.jcop.eclipse.jcopnature"
+               name="projectNature"/>
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.sourcePathComputers">
+      <sourcePathComputer
+            class="com.ibm.bluez.jcop.eclipse.internal.launcher.JavaCardSourcePathComputer"
+            id="com.ibm.bluez.jcop.eclipse.sourcepathcomputers.javacard"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            icon="icons/cview16/persp_devel.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.perspectives.DevelopmentPerspective"
+            name="%perspectives.development.name"
+            id="com.ibm.bluez.jcop.eclipse.perspectives.development"/>
+      <perspective
+            icon="icons/cview16/persp_debug.gif"
+            class="com.ibm.bluez.jcop.eclipse.internal.ui.perspectives.DebugPerspective"
+            name="%perspectives.debug.name"
+            id="com.ibm.bluez.jcop.eclipse.perspectives.debug"/>
+   </extension>
+   <extension
+         point="org.eclipse.jdt.core.classpathVariableInitializer">
+      <classpathVariableInitializer
+            class="com.ibm.bluez.jcop.eclipse.internal.builder.OffcardCPVInitializer"
+            variable="JCOP_OFFCARD"/>
+      <classpathVariableInitializer
+            class="com.ibm.bluez.jcop.eclipse.internal.builder.OffcardCPVInitializer"
+            variable="JCOP_OFFCARD_RMI"/>
+   </extension>
+   <extension
+         point="com.ibm.bluez.jcop.eclipse.profilingMemFieldKeys">
+      <fieldkey
+            key="common.eeFree"
+            label="%memfieldkey.eeFree"/>
+      <fieldkey
+            key="common.eeFreeLargest"
+            label="%memfieldkey.eeFreeLargest"/>
+      <fieldkey
+            key="common.eeUsed"
+            label="%memfieldkey.eeUsed"/>
+      <fieldkey
+            key="common.stackFree"
+            label="%memfieldkey.stackFree"/>
+      <fieldkey
+            key="common.stackUsed"
+            label="%memfieldkey.stackUsed"/>
+      <fieldkey
+            key="common.transientFree"
+            label="%memfieldkey.transientFree"/>
+      <fieldkey
+            key="common.transientUsed"
+            label="%memfieldkey.transientUsed"/>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true"/>
+   </extension>
+   <extension point="org.eclipse.ui.cheatsheets.cheatSheetContent">
+      <cheatsheet
+            category="com.ibm.bluez.jcop.eclipse"
+            contentFile="$nl$/cheatsheets/basic.xml"
+            id="com.ibm.bluez.jcop.eclipse.cheatsheets.basic"
+            name="%cheatsheet.basic.name">
+         <description>%cheatsheet.basic.desc</description>
+      </cheatsheet>
+      <cheatsheet
+            category="com.ibm.bluez.jcop.eclipse"
+            contentFile="$nl$/cheatsheets/rmi.xml"
+            id="com.ibm.bluez.jcop.eclipse.cheatsheets.rmi"
+            name="%cheatsheet.rmi.name">
+         <description>%cheatsheet.rmi.desc</description>
+      </cheatsheet>
+      <category
+            id="com.ibm.bluez.jcop.eclipse"
+            name="%cheatsheet.category.jcop"/>
+   </extension>
+   
+</plugin>

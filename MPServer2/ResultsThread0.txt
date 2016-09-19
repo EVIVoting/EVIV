@@ -1,0 +1,27 @@
+Thread 0
+
+Vote and receipt creation 
+with validity
+votes:      100
+candidates: 10
+Total time in ms     : 24365
+Total vote time in ms: 8517
+Total rec. time in ms: 132
+Total val. time in ms: 15714
+Vote and receipt verification
+Total time in ms     : 27449
+Total rec. time in ms: 11417
+Total CGSS time in ms: 16031
+
+Homomorphic aggregation: 12
+Homomorphic tally decryption (create decryption map): 2
+Homomorphic tally decryption: 6
+
+Total Canonical Transformation Time: 0
+
+Total individual decryption time: 595
+Vote tally (homomorphic and by individual decryption):
+[16, 11, 8, 6, 13, 12, 8, 3, 7, 16]
+[16, 11, 8, 6, 13, 12, 8, 3, 7, 16]
+]
+

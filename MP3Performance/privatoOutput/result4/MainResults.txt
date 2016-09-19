@@ -1,0 +1,14 @@
+Test with 4 threads.
+Test with 1000 votes per thread.
+Test with 2 candidates per vote.
+*** Election Results ***
+Candidate A: 2037 - 2037 true
+Candidate B: 1963 - 1963 true
+************************
+*************** MP3PerformanceTest Times ***************
+Total number of votes: 4000
+Number of candidates: 2
+Final aggregation time: 0
+Tally decryption time: 2
+Tally translation time: 315
+********************************************************

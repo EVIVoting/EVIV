@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<cheatsheet title="Java Card RMI Tutorial">
+	<intro>
+		<description>
+			Welcome to the <b>Java Card RMI Tutorial</b>.
+			It will help you build a Java Card applet with RMI support, and an
+			off-card application that communicates with this applet through RMI.<br />
+			Let's get started!
+		</description>
+	</intro>
+	<item 
+		href="/com.ibm.bluez.jcop.eclipse/guide/gettingstarted/createproject.html"
+		title="Create a new Java Card (RMI) project">
+		<action 
+			pluginId="com.ibm.bluez.jcop.eclipse"
+			class="com.ibm.bluez.jcop.eclipse.internal.ui.actions.NewJCOPProjectAction"
+			param1="com.ibm.bluez.jcop.eclipse.templatewizards.rmi" />
+		<description>
+			Select File &gt; New &gt; Project... in the menubar at the top
+			of the workbench, and choose Java Card Project from the list.<br />
+			Make sure you select a configuration with the Java Card 2.2 API, as previous versions
+			do not support RMI.<br /><br />
+			The <b>RMI Java Card applet</b> will be choosen at the Java Card Project Template wizard and
+			can't change there(press "Next" to continue).<br /><br />
+			Insert your package and applet AID as HEX-String or as ASCII-String with leading "|"-sign.<br /><br />
+			The result of this step are your applet class and a sample interface for this applet.
+		</description>
+	</item>
+	<item title="Implement the sampleMethod" skip="true">
+		<description>
+			The RMI-Applet created with the step before is shown in the editor (if not - open the editor 
+			with double click at the applet source file in the navigator or package explorer).<br />
+			Modify e.g. the simple code in the "sampleMethod" and save the modified code.
+		</description>
+	</item>
+	<item
+		href="/com.ibm.bluez.jcop.eclipse/guide/gettingstarted/startsimul.html"
+		title="Start simulation for the new Java Card Applet">
+		<description>
+			Select your applet in the "Package Explorer" or "Navigator" view.<br />
+			When your applet is selected, choose:<br />
+			Run -&gt; Run As -&gt; Java Card Application.<br />
+			The Eclipse launch configuration page will be displayed. Select "Java Card Application"
+			and press "new" for a new configuration.<br /><br />
+			The JavaCard launch configuration page will be displayed an you can choose the 
+			special requirements.<br />
+			<b>1)</b> Give this configuration a name.<br /><br />
+			<b>2)</b> On the Target page press the "Java Card Simulation" radiobutton and select 
+			"Generic JCOPv2.2" as simulation process.<br /><br />
+			<b>3)</b> Switch to the "Package Upload" page and press the "Add package..." button. Select the 
+			   package for upload.<br /><br />
+			<b>4)</b> Open the "Install applet" dialog with double-click on the package displayed and select your applet.<br /><br />
+			<b>5)</b> Press "Run" to start the simulation with automatic applet upload.
+		</description>
+	</item>
+	<item
+		href="/com.ibm.bluez.jcop.eclipse/guide/shell/tutorial/sampleSession/interact.html#select"
+		title="Applet Communication - Start">
+		<description>
+			After uploading the applet you can start a card communication via the JCShell command interpreter.<br />
+			<b>1)</b> Set the JCShell communication mode to tracing: <br />
+			<b>/mode trace=on</b><br /><br />
+			<b>2)</b> Select the applet with command: <br />
+			<b>/select |&lt;applet_aid&gt;</b><br />
+			where &lt;applet_aid&gt; is the given identifier from first step.<br />
+			You will find the AID also in the "CAP File Properties" view - located at the JCOP Debug perspective.
+		</description>
+	</item>
+	<item
+		href="/com.ibm.bluez.jcop.eclipse/guide/shell/find_application_id.html"
+		title="Applet Communication - Identify application ID">
+		<description>
+			Your applet was selected and now you have to identify the application ID.<br />
+			The result information from previous step contains this information in a line with this prefix: "Remote ref. ID:"
+		</description>
+	</item>
+	<item
+		href="/com.ibm.bluez.jcop.eclipse/guide/shell/plugins/commands/rmi_method.html"
+		title="Applet Communication - Declare Remote Method">
+		<description>
+			Declare the method "sampleMethod" from the applet as a remote JCShell method with the
+			following command:<br />
+			<b>-m meth_sample &lt;appl_ID&gt; sampleMethod "short(short)"</b><br />
+			where "appl_ID" is the application ID from previous step and "meth_sample" the name of a 
+			new JCShell variable which will contain the ID for this remote method after command execution.<br />
+			You can see this new method declaration with the command:<br />
+			<b>list</b>
+		</description>
+	</item>
+	<item
+		href="/com.ibm.bluez.jcop.eclipse/guide/shell/plugins/commands/rmi_invoke.html"
+		title="Applet Communication - Execute Remote Method">
+		<description>
+			Now you can execute the remote method with this command:<br />
+			<b>invoke -r req_result ${meth_sample} 1000</b><br />
+			where "req_result" is the name of a new JCShell variable which contains the result value of this 
+			remote method after command execution and "1000" is the parameter value given to the method as 4 HEX characters.
+		</description>
+	</item>
+	<item
+		href="/com.ibm.bluez.jcop.eclipse/guide/shell/tutorial/sampleSession/interact.html#close"
+		title="Applet Communication - Close">
+		<description>
+			Finish your communication with the close command string:<br />
+			<b>/close</b>
+		</description>
+	</item>
+</cheatsheet>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ElGamal"/>
+	<classpathentry kind="lib" path="C:/Java/jacob-1.15-M4/jacob.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre6"/>
+	<classpathentry kind="lib" path="H:/VirtualBox/SharedWorkspace/MarkPledgeMultiClient/jpcsc.jar"/>
+	<classpathentry kind="lib" path="H:/VirtualBox/SharedWorkspace/MarkPledgeMultiClient/offcard.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

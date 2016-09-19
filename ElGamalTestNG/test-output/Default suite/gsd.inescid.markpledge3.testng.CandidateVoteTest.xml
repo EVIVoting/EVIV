@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="RR_cb" name="gsd.inescid.markpledge3.testng.CandidateVoteTest" tests="10" failures="0" timestamp="4 Nov 2010 11:04:46 GMT" time="2.564" errors="0">
+  <testcase name="staticCandidateVoteTest" time="0.02" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.0" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.011" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.01" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.04" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.03" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.11" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.137" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.561" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+  <testcase name="staticCandidateVoteTest" time="0.554" classname="gsd.inescid.markpledge3.testng.CandidateVoteTest"/>
+</testsuite>

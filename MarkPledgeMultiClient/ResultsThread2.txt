@@ -1,0 +1,19 @@
+Thread 2
+Vote and receipt creation 
+with validity
+votes:      1000
+candidates: 10
+Total time in ms    : 68251
+Individual vote time: 68
+Individual cand time: 6
+Vote and receipt verification
+Total time in ms    : 75646
+Individual vote time: 75
+Individual cand time: 7
+Homomorphic aggregation: 124
+Homomorphic tally decryption (create decryption map): 14
+Homomorphic tally decryption: 6
+Total individual decryption time: 6041
+Vote tally (homomorphic and by individual decryption):
+[108, 99, 91, 93, 113, 100, 108, 96, 105, 87]
+[108, 99, 91, 93, 113, 100, 108, 96, 105, 87]
